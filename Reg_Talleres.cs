@@ -14,6 +14,7 @@ namespace Parcial2_Simulacro_
     {
 
         List<Talleres> Lista_Talleres = new List<Talleres>();
+        Procesos Procesos = new Procesos();
         public Reg_Talleres()
         {
             InitializeComponent();
@@ -28,7 +29,12 @@ namespace Parcial2_Simulacro_
 
         private void Reg_Talleres_Load(object sender, EventArgs e)
         {
-
+            Talleres talleres = new Talleres();
+            talleres.Taller = textBoxNomTaller.Text;
+            talleres.Codigo = textBoxCodigo.Text;
+            talleres.Costo = float.Parse(textBoxCostoTaller.Text);
+            Lista_Talleres.Add(talleres);
+            Procesos.GuardarJsonTalleres("../../Registro_Talleres", Lista_Talleres);
         }
     }
 }
