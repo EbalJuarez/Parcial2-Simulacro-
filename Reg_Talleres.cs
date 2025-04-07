@@ -34,6 +34,11 @@ namespace Parcial2_Simulacro_
         }
         private void Reg_Talleres_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void buttonRegistrar_Click(object sender, EventArgs e)
+        {
             Talleres talleres = new Talleres();
             talleres.Taller = textBoxNomTaller.Text;
             talleres.Codigo = textBoxCodigo.Text;
@@ -41,11 +46,6 @@ namespace Parcial2_Simulacro_
             Lista_Talleres.Add(talleres);
             Procesos.GuardarJsonTalleres("../../Registro_Talleres", Lista_Talleres);
             clear();
-        }
-
-        private void buttonRegistrar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

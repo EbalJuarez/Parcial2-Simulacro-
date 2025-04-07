@@ -32,5 +32,19 @@ namespace Parcial2_Simulacro_
             dataGridViewReporte.DataSource = null;
             dataGridViewReporte.DataSource = Lista_Reportes;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string opc= comboBoxOrden.SelectedItem.ToString();
+            if (opc == "Mostrar todo") {
+
+                Lista_Reportes = procesos.LeerJsonReporte("../../Registro_Reporte");
+                dataGridViewReporte.DataSource = null;
+                dataGridViewReporte.DataSource = Lista_Reportes;
+            }
+            if (opc == "Ordenar Alfabeticamente") {
+                Lista_Reportes = Lista_Reportes.OrderByDescending(a => a.Taller).ToList();
+            }
+        }
     }
 }

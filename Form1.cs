@@ -24,19 +24,31 @@ namespace Parcial2_Simulacro_
 
         private void buttonEstudiates_Click(object sender, EventArgs e)
         {
-
+            Reg_Esudiantes reg_Esudiantes = new Reg_Esudiantes();
+            this.Hide();
+            reg_Esudiantes.Show();
         }
 
         private void buttonTalle_Click(object sender, EventArgs e)
         {
-
+            Reg_Talleres reg_Talleres = new Reg_Talleres();
+            this.Hide();
+            reg_Talleres.Show();
         }
 
         private void buttonInscripciones_Click(object sender, EventArgs e)
         {
-
+            Inscripciones inscripciones = new Inscripciones();
+            this.Hide();
+            inscripciones.Show();
         }
-      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Consultas reporte = new Consultas();
+            this.Hide();
+            reporte.Show();
+        }
     }
 
 

@@ -63,5 +63,12 @@ namespace Parcial2_Simulacro_
                 comboBoxCodigo.Items.Add(taller.Taller);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            this.Hide();
+            form1.Show();
+        }
     }
 }
