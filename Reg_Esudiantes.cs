@@ -26,6 +26,12 @@ namespace Parcial2_Simulacro_
             form1.Show();
         }
 
+        private void clear() { 
+            textBoxDireccion.Text = string.Empty;
+            textBoxDPI.Text = string.Empty; 
+            textBoxNombre.Text = string.Empty;
+        }
+
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             Estudiantes estudiantes = new Estudiantes();
@@ -34,6 +40,7 @@ namespace Parcial2_Simulacro_
             estudiantes.Direccion = textBoxDireccion.Text;
             Lista_Estudiante.Add(estudiantes);
             Procesos.GuardarJsonEstudiates("../../Registro_Estudiantes", Lista_Estudiante);
+            clear();
         }
     }
 }

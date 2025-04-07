@@ -27,6 +27,11 @@ namespace Parcial2_Simulacro_
             frm.Show();
         }
 
+        private void clear() { 
+            textBoxCodigo.Text = string.Empty;
+            textBoxCostoTaller.Text = string.Empty;
+            textBoxNomTaller.Text = string.Empty;
+        }
         private void Reg_Talleres_Load(object sender, EventArgs e)
         {
             Talleres talleres = new Talleres();
@@ -35,6 +40,12 @@ namespace Parcial2_Simulacro_
             talleres.Costo = float.Parse(textBoxCostoTaller.Text);
             Lista_Talleres.Add(talleres);
             Procesos.GuardarJsonTalleres("../../Registro_Talleres", Lista_Talleres);
+            clear();
+        }
+
+        private void buttonRegistrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
