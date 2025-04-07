@@ -12,6 +12,7 @@ namespace Parcial2_Simulacro_
 {
     public partial class Reg_Talleres : Form
     {
+
         List<Talleres> Lista_Talleres = new List<Talleres>();
         public Reg_Talleres()
         {
