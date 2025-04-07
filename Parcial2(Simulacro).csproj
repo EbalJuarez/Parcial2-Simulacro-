@@ -84,6 +84,7 @@
     <Compile Include="Reg_Talleres.Designer.cs">
       <DependentUpon>Reg_Talleres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte.cs" />
     <Compile Include="Talleres.cs" />
     <EmbeddedResource Include="Consultas.resx">
       <DependentUpon>Consultas.cs</DependentUpon>

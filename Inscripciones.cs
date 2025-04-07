@@ -15,6 +15,7 @@ namespace Parcial2_Simulacro_
         List<InscripcionesClase> Lista_Inscripciones = new List<InscripcionesClase>();
         List<Estudiantes>Lista_Estudiantes = new List<Estudiantes>();
         List<Talleres> Lista_Talleres = new List<Talleres>();
+        List<Reporte> Lista_Reportes = new List<Reporte>();
         Procesos Procesos = new Procesos();
         public Inscripciones()
         {
@@ -24,7 +25,10 @@ namespace Parcial2_Simulacro_
         private void buttonInscribirse_Click(object sender, EventArgs e)
         {
             InscripcionesClase inscripciones = new InscripcionesClase();
+            Reporte reporte = new Reporte();
             inscripciones.Fecha = DateTime.Now;
+            reporte.Taller = comboBoxCodigo.SelectedItem.ToString();
+            reporte.Nombre = comboBoxDPI.SelectedItem.ToString();   
             foreach (var taller in Lista_Talleres)
             {
                 if (comboBoxCodigo.SelectedItem.ToString() == taller.Taller)
@@ -38,9 +42,12 @@ namespace Parcial2_Simulacro_
                         inscripciones.DPI = estudiante.DPI;
                     }
                 }
-                Lista_Inscripciones.Add(inscripciones);
-                Procesos.GuardarJsonInscripciones("../../Registro_Inscripciones", Lista_Inscripciones);
+                
             }
+            Lista_Reportes.Add(reporte);
+            Lista_Inscripciones.Add(inscripciones);
+            Procesos.GuardarJsonReporte("../../Registro_Reporte", Lista_Reportes);
+            Procesos.GuardarJsonInscripciones("../../Registro_Inscripciones", Lista_Inscripciones);
         }
 
 

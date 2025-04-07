@@ -12,6 +12,8 @@ namespace Parcial2_Simulacro_
 {
     public partial class Consultas : Form
     {
+        Procesos procesos = new Procesos();
+        List<Reporte> Lista_Reportes = new List<Reporte>();
         public Consultas()
         {
             InitializeComponent();
@@ -22,6 +24,13 @@ namespace Parcial2_Simulacro_
             Form1 form1 = new Form1();
             this.Hide();
             form1.Show();
+        }
+
+        private void Consultas_Load(object sender, EventArgs e)
+        {
+            Lista_Reportes = procesos.LeerJsonReporte("../../Registro_Reporte");
+            dataGridViewReporte.DataSource = null;
+            dataGridViewReporte.DataSource = Lista_Reportes;
         }
     }
 }

@@ -57,5 +57,21 @@ namespace Parcial2_Simulacro_
             estudiantes = JsonConvert.DeserializeObject<List<InscripcionesClase>>(json);
             return estudiantes;
         }
+
+        public void GuardarJsonReporte(string nombreArchivo, List<Reporte> ListaEstudiantes)
+        {
+            string json = JsonConvert.SerializeObject(ListaEstudiantes);
+            System.IO.File.WriteAllText(nombreArchivo, json);
+        }
+
+        public List<Reporte> LeerJsonReporte(string nombreArchivo)
+        {
+            List<Reporte> estudiantes = new List<Reporte>();
+            StreamReader jsonStream = File.OpenText(nombreArchivo);
+            string json = jsonStream.ReadToEnd();
+            jsonStream.Close();
+            estudiantes = JsonConvert.DeserializeObject<List<Reporte>>(json);
+            return estudiantes;
+        }
     }
 }
