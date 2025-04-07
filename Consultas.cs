@@ -44,6 +44,8 @@ namespace Parcial2_Simulacro_
             }
             if (opc == "Ordenar Alfabeticamente") {
                 Lista_Reportes = Lista_Reportes.OrderByDescending(a => a.Taller).ToList();
+                dataGridViewReporte.DataSource = null;
+                dataGridViewReporte.DataSource = Lista_Reportes;
             }
         }
     }
