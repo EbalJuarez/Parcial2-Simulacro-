@@ -24,17 +24,25 @@ namespace Parcial2_Simulacro_
         private void buttonInscribirse_Click(object sender, EventArgs e)
         {
             InscripcionesClase inscripciones = new InscripcionesClase();
-            inscripciones.Codigo = comboBoxCodigo.SelectedItem.ToString();
             inscripciones.Fecha = DateTime.Now;
-            foreach (var estudiante in Lista_Estudiantes)
+            foreach (var taller in Lista_Talleres)
             {
-                if (comboBoxDPI.SelectedItem.ToString() == estudiante.Nombre) { 
-                    inscripciones.DPI = estudiante.DPI;
+                if (comboBoxCodigo.SelectedItem.ToString() == taller.Taller)
+                {
+                    inscripciones.Codigo = taller.Codigo;
                 }
+                foreach (var estudiante in Lista_Estudiantes)
+                {
+                    if (comboBoxDPI.SelectedItem.ToString() == estudiante.Nombre)
+                    {
+                        inscripciones.DPI = estudiante.DPI;
+                    }
+                }
+                Lista_Inscripciones.Add(inscripciones);
+                Procesos.GuardarJsonInscripciones("../../Registro_Inscripciones", Lista_Inscripciones);
             }
-            Lista_Inscripciones.Add(inscripciones);
-            Procesos.GuardarJsonInscripciones("../../Registro_Inscripciones",Lista_Inscripciones);
         }
+
 
         private void Inscripciones_Load(object sender, EventArgs e)
         {
@@ -45,7 +53,7 @@ namespace Parcial2_Simulacro_
                 comboBoxDPI.Items.Add(estudiates.Nombre);
             }
             foreach (var taller in Lista_Talleres) {
-                comboBoxCodigo.Items.Add(taller.Codigo);
+                comboBoxCodigo.Items.Add(taller.Taller);
             }
         }
     }
